@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<BorderPane maxHeight="768.0" maxWidth="1024.0" minHeight="305.0" minWidth="533.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.roomfactors2.DesignGeneratorController">
+
+    <top>
+        <!-- Лого -->
+        <ImageView fitHeight="138.0" fitWidth="170.0">
+         <image>
+            <Image url="@images/logo.jpg" />
+         </image></ImageView>
+    </top>
+
+    <center>
+        <!-- Главный контейнер с основными компонентами интерфейса -->
+        <VBox alignment="CENTER" maxHeight="768.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" spacing="10">
+
+            <!-- Задание стиля комнаты (RadioButtons) -->
+            <HBox spacing="10" fx:id="styleRadioButtonsContainer">
+                <RadioButton fx:id="modernRadioButton" text="Современный" />
+                <RadioButton fx:id="classicRadioButton" text="Классический" />
+                <RadioButton fx:id="minimalismRadioButton" text="Минимализм" />
+                <RadioButton text="Арт-деко" />
+                <RadioButton text="High-tech" />
+                <RadioButton text="Экологичный" />
+                <RadioButton text="Неоклассический" />
+                <RadioButton text="Шале" />
+                <!-- Добавьте другие стили, если необходимо -->
+            </HBox>
+            <!-- Флажок для использования пользовательского интерьера с выпадающим списком -->
+            <HBox spacing="10" fx:id="userInteriorOptions">
+                <CheckBox fx:id="userInteriorCheckBox" text="Использовать пользовательский интерьер" />
+                <Button fx:id="chooseCloset" text="Выбрать шкаф" onAction="#chooseCloset"/>
+                <Button fx:id="chooseBedside" text="Выбрать тумбочку" onAction="#chooseBedside"/>
+            </HBox>
+            <!-- Текстовое поле для пожелания по генерации дизайна -->
+            <TextField fx:id="promptTextField" prefHeight="116.0" prefWidth="800.0" promptText="Введите ваше пожелание" />
+
+            <!-- Кнопка выбора наброска (выбор файла с диска) -->
+            <Button text="Выбрать набросок" onAction="#chooseSketch"/>
+
+            <!-- Кнопка "Сгенерировать" -->
+            <Button text="Сгенерировать" onAction="#generateDesign"/>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.28947368264198303" green="0.12195418775081635" blue="0.12195418775081635" />
+               </color>
+            </InnerShadow>
+         </effect>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <!-- Окно сгенерированных фотографий -->
+        <VBox fx:id="imageContainer" alignment="CENTER" spacing="10">
+            <!-- Здесь будут отображаться сгенерированные фотографии -->
+        </VBox>
+        <Label fx:id="imageLabel" />
+    </bottom>
+</BorderPane>
